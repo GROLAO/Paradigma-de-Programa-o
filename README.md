@@ -17,20 +17,26 @@ LSD: Processa os dígitos menos significativos primeiro e os dígitos mais signi
 
 MSD: Processa os dígitos mais significativos primeiro e os dígitos menos significativos em último lugar. É mais rápido do que o LSD, pois os dígitos que estão sendo processados agora podem agrupar os números, o que pode levar a um tempo de execução mais rápido.
 
-Embora o mesmo possa não ser a melhor opção em todos os casos, devido à sua dependência do tamanho do inteiro e ao número de dígitos, ele pode ser uma opção interessante em situações onde o tamanho dos dados é limitado
+Embora o mesmo possa não ser a melhor opção em todos os casos, devido à sua dependência do tamanho do inteiro e ao número de dígitos, ele pode ser uma opção interessante em situações onde o tamanho dos dados é limitado.
+
 Esse algoritmo de ordenação utiliza a técnica de ordenação por chaves (bucket sort) e faz uso de uma representação binária. Ele ordena o array com base em cada dígito, do menos significativo para o mais significativo.
 
 Para ilustrar, vamos supor que temos o seguinte array de números inteiros:
 
-[170, 45, 75, 90, 802, 24, 2, 66] 
+[170, 45, 75, 90, 802, 24, 2, 66]
+ 
 • Primeiro, o algoritmo determina o número de dígitos máximo que a maioria dos números possui. Neste caso, a maioria dos números possui dois dígitos, então o algoritmo se concentra nesses dígitos primeiro.
+
 • Em seguida, o algoritmo cria um array de buckets vazios. Cada bucket representa um número entre 0 e 9.
 • Em seguida, o algoritmo percorre cada elemento do array original e coloca o elemento no bucket correspondente à sua última casa decimal (dezena, neste caso). Por exemplo, o número 170 vai para o bucket 7.
+
 • Depois de preencher todos os buckets, o algoritmo combina os elementos dos buckets de acordo com seus valores, para que os elementos menores sejam posicionados antes dos elementos maiores.
+
 • O algoritmo repete esse processo para cada casa decimal, movendo para a casa decimal das centenas, e assim por diante, até que todos os dígitos do maior número no array sejam processados.
 
 Após a execução do algoritmo, o array será ordenado em ordem crescente:
 [2, 24, 45, 66, 75, 90, 170, 802]
+
 Embora o Radix Sort seja eficiente para ordenar arrays grandes e em que a maioria dos números tenha um número pequeno de dígitos, ele pode ser lento se os números tiverem muitos dígitos e/ou se os dígitos de ordem mais significativa forem maiores. Além disso, o Radix Sort requer um espaço adicional de armazenamento proporcional ao tamanho do array.
 
 ## Tempos de Execução
