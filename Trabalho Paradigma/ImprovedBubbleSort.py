@@ -2,20 +2,20 @@ import random
 import time
 
 # Função de Improved Bubble Sort
-def insertion_sort(arr):
+def improved_bubble_sort(arr):
     comparisons = 0
     swaps = 0
-    for i in range(1, len(arr)):
-        key = arr[i]
-        j = i - 1
-        while j >= 0 and key < arr[j]:
+    n = len(arr)
+    
+    for i in range(n):
+        # Otimização: após cada iteração, o maior elemento está na posição correta
+        for j in range(0, n-i-1):
             comparisons += 1
-            arr[j + 1] = arr[j]
-            swaps += 1
-            j -= 1
-        comparisons += 1
-        arr[j + 1] = key
-    return comparisons, swaps
+            if arr[j] > arr[j+1]:
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+                swaps += 1
+    
+    return arr, comparisons, swaps
 
 # Função para gerar dados para diferentes casos
 def generate_data(size, case_type):
@@ -36,7 +36,7 @@ for size in sizes:
         
         # Medição de tempo, trocas e comparações
         start_time = time.time()
-        comparisons, swaps = insertion_sort(data.copy())
+        result, comparisons, swaps = improved_bubble_sort(data.copy())
         end_time = time.time()
 
         execution_time = end_time - start_time
