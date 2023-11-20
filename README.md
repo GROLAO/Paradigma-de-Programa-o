@@ -10,9 +10,11 @@
 # Radix Sort
 
 O Radix Sort é um algoritmo de ordenação que utiliza a técnica de contagem (counting) e ordenação (sorting) pelos dígitos. Ele é baseado em um princípio matemático simples: qualquer número, em qualquer base numérica, pode ser expresso como uma soma de múltiplos dessa base, cada um deles representado por um dígito.
+
 Existem duas abordagens para implementa-lo: Least Significant Digit (LSD) e Most Significant Digit (MSD).
 
 LSD: Processa os dígitos menos significativos primeiro e os dígitos mais significativos em último lugar. É simples e fácil de implementar, mas pode ser mais lento que o MSD, pois pode exigir a classificação de números que têm a mesma class do dígito atual várias vezes.
+
 MSD: Processa os dígitos mais significativos primeiro e os dígitos menos significativos em último lugar. É mais rápido do que o LSD, pois os dígitos que estão sendo processados agora podem agrupar os números, o que pode levar a um tempo de execução mais rápido.
 
 Embora o mesmo possa não ser a melhor opção em todos os casos, devido à sua dependência do tamanho do inteiro e ao número de dígitos, ele pode ser uma opção interessante em situações onde o tamanho dos dados é limitado
